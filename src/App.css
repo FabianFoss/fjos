@@ -203,8 +203,23 @@
 
 }
 
+.table_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 .table_header {
   background-color: brown;
+}
+
+.full_width {
+  min-width: 100%;
+}
+
+.full_height {
 }
 
 .butt {
@@ -216,4 +231,15 @@
 
 .butt:hover, .paas:hover {
   background-color: brown; 
+}
+
+.align_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.button_style {
+  width: 30%
 }

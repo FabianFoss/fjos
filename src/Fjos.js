@@ -6,76 +6,138 @@ import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 function Farm () {
-    const [allAnimals, setAnimalList] = useState([])
-    const [show, setShow] = useState(false);
 
+    const [allAnimals, setAnimalList] = useState([])
+    const [show, setShow] = useState(false)
+    //const [newAnimal, updateAnimal] = useState({})
+
+    const [globalId, updateId] = useState(6)
+
+
+    let myObject = {}
+    myObject.name = "abc"
+
+    let animal = {
+        "id": globalId,
+        "name": "",
+        "gender": "M",
+        "age": 30,
+        "type": ""}
+    
     const handleShow = () => setShow(!show)
 
     useEffect (() => {
         setAnimalList(animals.map(animal => {
             return animal
             }))
-        })
+        }, [])
 
-    
+    const addAminal = () => {
+        setAnimalList([...allAnimals, animal])
+        handleShow()
+        updateId(globalId + 1)
+    }
+
+    const handleChange = (e) => {
+        animal[e.target.name] = e.target.value
+    }
+
+    const onDelete = (e) => {
+        const newList = allAnimals.filter(animal => animal.id !== parseInt(e.target.id))
+        setAnimalList(newList)
+        updateId(globalId - 1)
+    }
+
     return (
         <div>
         <h1>Fjos 2.0</h1>
-        <Table>
-            <thead>Animals</thead>
-                <td>Name</td>
+        <div className="align_center">
+            <Button className="button_style" onClick={handleShow}>Add animal</Button>
+        </div>
+        <div className="table_container">
+        <Table Table striped bordered hover variant="dark">
+            <thead className="table_header">
                 <td>Id</td>
+                <td>Name</td>
                 <td>Type</td>
+                <td>Age</td>
+                <td>Gender</td>
+                <td>Handling</td>
+            </thead>
             <tbody>
                 {allAnimals.map(animal => {
                     return <tr>
+                        <td>#{animal.id}</td>
                         <td>{animal.name}</td>
-                        <td>{animal.id}</td>
                         <td>{animal.type}</td>
+                        <td>{animal.age}</td>
+                        <td>{animal.gender}</td>
+                        <td><Button onClick={onDelete} id={animal.id}>Delete</Button></td>
                     </tr>
                 })}
             </tbody>
         </Table> 
-        
-        <Button onClick={handleShow}>Add animal</Button>
+        </div>
 
         {/*Add animal modal*/}
         <Modal show={show} onHide={handleShow}>
-            <Modal.Dialog>
+            {/*<Modal.Dialog className="full_width">
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
-                </Modal.Header>
+                    <Modal.Title>Legg til nytt dyr</Modal.Title>
+            </Modal.Header>*/}
 
                 <Modal.Body>
-                <Form>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
+                    <Modal.Title>Legg til nytt dyr</Modal.Title>
+                    <Form>
+                        <Form.Group controlId="exampleForm.ControlInput1">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control 
+                                name="name" 
+                                type="name" 
+                                placeholder="Saun the Sheap" 
+                                onChange={handleChange}
+                                />
+                        </Form.Group>
+                        
+                        <Form.Group controlId="exampleForm.ControlInput1">
+                            <Form.Label>Age</Form.Label>
+                            <Form.Control name="age" type="number"/>
+                        </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                            <Form.Label>Type</Form.Label>
+                                <Form.Control 
+                                    as="select" 
+                                    onChange={handleChange}
+                                    name="type">
+                                    <option>Gris</option>
+                                    <option>Ku</option>
+                                    <option>Antilope</option>
+                                    <option>Kylling</option>
+                                    <option>Høne</option>
+                                </Form.Control>
+                        </Form.Group>
+
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                            <Form.Label>Gender</Form.Label>
+                                <Form.Control 
+                                    as="select" 
+                                    onChange={handleChange}
+                                    name="gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </Form.Control>
+                        </Form.Group>
                     </Form>
                 </Modal.Body>
-
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleShow}>Close</Button>
-                    <Button variant="primary">Save changes</Button>
+                    <Button variant="secondary" onClick={handleShow}>Lukk</Button>
+                    <Button variant="primary" onClick={addAminal}>Legg til</Button>
                 </Modal.Footer>
-            </Modal.Dialog>
+            {/*</Modal.Dialog>*/}
         </Modal>
 </div>
     );
