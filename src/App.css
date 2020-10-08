@@ -1,0 +1,219 @@
+.App {
+  text-align: center;
+  padding-right: 20%;
+  padding-left: 20%;
+  padding-top: 5;
+  background-color: lightgreen;
+  
+}
+
+.App-header {
+  background-color:none;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.tittel {
+  margin-top: 5%;
+}
+
+.body{
+  background-color: none;
+}
+
+.tittel2 {
+  margin-top: 8%
+}
+
+.popup {  
+  position:fixed;  
+  width: 100%;  
+  height: 100%;  
+  top: 0;  
+  left: 0;  
+  right: 0;  
+  bottom: 0;  
+  margin: auto;  
+  background-color: rgba(0, 0, 0, 0.822);  
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
+  padding-top: 35px;
+}  
+.popup\_inner {  
+  width: 50%;
+  height: 50%; 
+  bottom: 25%;  
+  margin: auto;   
+  color: aliceblue;
+  align-content: center;
+  display: flex;
+  margin-top: 10px;
+}
+
+.popup_scheme {
+  width: 500px;
+  height: 450px;
+  background-color: rgba(0, 100, 0, 0.89);
+  align-content: center;
+  color: white;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.kjopeknapp {
+  margin-left: 6%;
+  margin-top: 10px;
+  align-content: center;
+  float: center;
+  background-color: gold;
+  border-width: 0px;
+  color: black;
+  width: 50%;
+}
+
+.kjopeknapp:hover{
+  background-color: brown;
+}
+
+.inputbok {
+  background-color: rgba(255, 255, 255, 0.726);
+  color: black;
+  height: 40px;
+  border-radius: 8px;
+  border-width: 0ch;
+  margin-top: 8px;
+  text-align: center;
+  
+}
+
+.inputboks{
+  color: white;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.skjemaover {
+  margin-top: 20px;
+  float: center;
+  align-items: center;
+}
+
+.skjemaet {
+  margin-left: -3%;
+  margin-right: auto;
+  align-content: center;
+  width: 100%;
+}
+
+.inputbok1{
+  width: 14.5%;
+  /*margin-right: 2%;
+  margin-left:1%;*/
+  padding-left: 0px;
+  height: 40px;
+  border-width: 0ch;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.726);
+  text-align: center;
+
+  
+}
+
+.valg {
+  margin-right: 0%;
+  height: 40px;
+  width: 14.5%;
+  margin-top: -5px;
+  background-color: rgba(13, 24, 41, 0.726);
+  color:white;
+  border-width: 0ch;
+}
+
+.valgF {
+  margin-right: 3%;
+  margin-left: 3%;
+  height: 40px;
+  width: 14.5%;
+  margin-top: -5px;
+  background-color: rgba(13, 24, 41, 0.726);
+  color:white;
+  border-width: 0ch;
+
+}
+
+.genderchoice {
+  width:100%;
+  font-size: 80%;
+  padding-left: 5%;
+  padding-right: 0px;
+  float: center;
+}
+
+.wholelanding {
+  position:fixed;  
+  width: 100%;  
+  height: 100%;  
+  top: 0;  
+  left: 0;  
+  right: 0;  
+  bottom: 0;  
+  margin: auto;  
+  background-color: brown;  
+  text-align: center;
+  padding-top: 35px;
+  color:white;
+
+}
+
+.passord {
+  display: inline;
+  margin-left:-3%;
+}
+
+.paas {
+  margin-right: 10px;
+  background-color: green;
+  border-width: 0ch;
+  width: 25%;
+  font-size: 25px;
+}
+
+.pass:hover{
+  background-color: brown;
+}
+
+.nicco {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.fjose {
+  margin-top: 50px;
+}
+
+.tabell {
+  background-color: green;
+
+}
+
+.table_header {
+  background-color: brown;
+}
+
+.butt {
+  background-color: gold;
+  border-width: 0px;
+  color: black;
+  float: center;
+}
+
+.butt:hover, .paas:hover {
+  background-color: brown; 
+}

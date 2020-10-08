@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Bob",
+        "gender": "M",
+        "age": 3,
+        "type": "Gris"
+    },
+    {
+        "id": 2,
+        "name": "Alice",
+        "gender": "F",
+        "age": 5,
+        "type": "Gris"
+    },
+    {
+        "id": 3,
+        "name": "Hans",
+        "gender": "M",
+        "age": 99,
+        "type": "Antilope"
+    },
+    {
+        "id": 4,
+        "name": "Rufus",
+        "gender": "M",
+        "age": 7,
+        "type": "Rotte"
+    },
+    {
+        "id": 5,
+        "name": "Felix",
+        "gender": "M",
+        "age": 6,
+        "type": "Hund"
+    }
+]
