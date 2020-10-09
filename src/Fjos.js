@@ -48,7 +48,7 @@ function Farm () {
     const onDelete = (e) => {
         const newList = allAnimals.filter(animal => animal.id !== parseInt(e.target.id))
         setAnimalList(newList)
-        updateId(globalId - 1)
+        //updateId(globalId - 1)
     }
 
     return (
