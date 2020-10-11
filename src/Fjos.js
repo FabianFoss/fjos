@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
+import axios from 'axios';
 
 function Farm () {
 
@@ -16,11 +17,13 @@ function Farm () {
 
     const [globalId, updateId] = useState(6)
 
+    //console.log('axios')
 
     let myObject = {}
     myObject.name = "abc"
 
     let animal = {
+        "key" : globalId,
         "id": globalId,
         "name": "",
         "gender": "M",
@@ -30,11 +33,10 @@ function Farm () {
     const handleShow = () => setShow(!show)
 
     useEffect (() => {
-        setAnimalList(animals.map(animal => {
-            return animal
-            }))
-        }, [])
-
+        axios.get('http://localhost:8000/animals/all').then(res => setAnimalList(res.data.map(animal => {
+        return animal
+        })), [])})
+    
     const addAminal = () => {
         setAnimalList([...allAnimals, animal])
         handleShow()
@@ -46,8 +48,9 @@ function Farm () {
     }
 
     const onDelete = (e) => {
-        const newList = allAnimals.filter(animal => animal.id !== parseInt(e.target.id))
-        setAnimalList(newList)
+        //const newList = allAnimals.filter(animal => animal.id !== parseInt(e.target.id))
+        //setAnimalList(newList)
+        axios.delete('http://localhost:8000/animals/all/'+ e.target.id)
         //updateId(globalId - 1)
     }
 
@@ -69,7 +72,7 @@ function Farm () {
             </thead>
             <tbody>
                 {allAnimals.map(animal => {
-                    return <tr>
+                    return <tr key={animal.id}>
                         <td>#{animal.id}</td>
                         <td>{animal.name}</td>
                         <td>{animal.type}</td>
