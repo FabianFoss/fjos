@@ -20,20 +20,22 @@ function Farm () {
     let myObject = {}
     myObject.name = "abc"
 
-    let animal = {
+    const animal = {
         "id": globalId,
         "name": "",
         "gender": "M",
         "age": 30,
-        "type": ""}
+        "type": ""
+    }
     
     const handleShow = () => setShow(!show)
 
-    useEffect (() => {
-        setAnimalList(animals.map(animal => {
+    /*useEffect (() => {
+        console.log('useffect')
+        /setAnimalList(animals.map(animal => {
             return animal
             }))
-        }, [])
+        }, [])*/
 
     const addAminal = () => {
         setAnimalList([...allAnimals, animal])
@@ -43,6 +45,7 @@ function Farm () {
 
     const handleChange = (e) => {
         animal[e.target.name] = e.target.value
+        console.log(e.target.value)
     }
 
     const onDelete = (e) => {
