@@ -38,7 +38,7 @@ function Farm () {
             return animal
             }))
         }, [])
-
+        //farge
     const addAminal = () => {
         setAnimalList([...allAnimals, animal])
         handleShow()
