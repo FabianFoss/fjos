@@ -20,7 +20,9 @@ function Farm () {
     let myObject = {}
     myObject.name = "abc"
 
-    let animal = {
+    const animalTypes = ['Gris', 'Høne', 'Ku', 'Kylling', 'Katt', 'Grusegutt']
+
+    const animal = {
         "id": globalId,
         "name": "",
         "gender": "M",
@@ -63,12 +65,7 @@ function Farm () {
         <div className="table_container">
         <Table Table striped bordered hover variant="dark">
             <thead className="table_header">
-                <td>Id</td>
-                <td>Name</td>
-                <td>Type</td>
-                <td>Age</td>
-                <td>Gender</td>
-                <td>Handling</td>
+            {animalTypes.map(type => {return <td>{type}</td>})}
             </thead>
             <tbody>
                 {allAnimals.map(animal => {
@@ -121,6 +118,7 @@ function Farm () {
                                     <option>Antilope</option>
                                     <option>Kylling</option>
                                     <option>Høne</option>
+                                    <option>Grisegutt</option>
                                 </Form.Control>
                         </Form.Group>
 
