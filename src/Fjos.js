@@ -20,7 +20,7 @@ function Farm () {
     let myObject = {}
     myObject.name = "abc"
 
-    const animal = {
+    let animal = {
         "id": globalId,
         "name": "",
         "gender": "M",
@@ -30,12 +30,12 @@ function Farm () {
     
     const handleShow = () => setShow(!show)
 
-    /*useEffect (() => {
+    useEffect (() => {
         console.log('useffect')
-        /setAnimalList(animals.map(animal => {
+        setAnimalList(animals.map(animal => {
             return animal
             }))
-        }, [])*/
+        }, [])
 
     const addAminal = () => {
         setAnimalList([...allAnimals, animal])
@@ -113,7 +113,7 @@ function Farm () {
                         <Form.Group controlId="exampleForm.ControlSelect1">
                             <Form.Label>Type</Form.Label>
                                 <Form.Control 
-                                    as="select" 
+                                    as="select"
                                     onChange={handleChange}
                                     name="type">
                                     <option>Gris</option>
